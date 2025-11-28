@@ -80,7 +80,7 @@ const AboutMe = () => {
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            I'm a Web developer and Computer Science student specializing in clean, modern, responsive full-stack applications — using React, Next.js, PostgreSQL, Prisma and MongoDB.
+            I'm a Backend & Frontend Web developer and Electronics Engineering student specializing in clean, modern, responsive full-stack applications — using React, Next.js, PostgreSQL, Prisma and MongoDB.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">

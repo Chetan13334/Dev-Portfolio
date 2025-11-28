@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className="h-16 fixed top-0 left-0 right-0 z-30 flex items-center justify-center">
       <nav className="fixed z-20 top-5 w-full flex items-center justify-center px-4">
-        {/* DESKTOP MENU */}
+       
         <ul
           className="
             border border-white/10 bg-white/5 
@@ -49,18 +49,18 @@ const Header = () => {
             >
               <a>{item.name}</a>
 
-              {/* ACTIVE GLOW BACKPLATE */}
+              
               {activeItem === item.name && (
                 <div
                   className="absolute inset-0 -z-10 w-full rounded-full"
-                  style={{ opacity: 1, background: "rgba(124, 58, 237, 0.15)" }} // violet glow
+                  style={{ opacity: 1, background: "rgba(124, 58, 237, 0.15)" }} 
                 >
-                  {/* TOP GLOW STRIP */}
+                 
                   <div
                     className="absolute -top-[9px] left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full"
                     style={{ background: "#7c3aed", opacity: 1 }}
                   >
-                    {/* 3 Glow Layers */}
+                    
                     <div
                       className="absolute -top-2 -left-2 h-6 w-12 rounded-full blur-sm"
                       style={{ background: "rgba(124, 58, 237, 0.4)" }}
@@ -82,7 +82,7 @@ const Header = () => {
           ))}
         </ul>
 
-        {/* MOBILE MENU BUTTON */}
+       
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden fixed right-4 top-5 z-30 p-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/70 hover:text-white transition-colors"
@@ -109,7 +109,7 @@ const Header = () => {
           )}
         </button>
 
-        {/* MOBILE MENU DROPDOWN */}
+      
         {isMobileMenuOpen && (
           <div className="absolute top-16 left-0 right-0 mx-4 p-4 rounded-2xl bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 md:hidden flex flex-col items-center space-y-4 shadow-2xl animate-fadeIn">
             {navItems.map((item) => (

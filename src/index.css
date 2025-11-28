@@ -79,7 +79,7 @@ body {
   cursor: default;
 }
 
-/* Hover animation like original website */
+
 .letter:hover {
   transform: rotateY(25deg) rotateX(10deg) translateY(-4px) scale(1.1);
   text-shadow: 0 5px 25px rgba(0, 153, 255, 0.5);

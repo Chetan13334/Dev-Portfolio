@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import Home from './Component/Home'
 import NavBar from './Component/NavBar'
 import AboutMe from './Component/About'

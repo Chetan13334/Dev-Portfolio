@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-// Placeholder icons (in a real app, you'd use a library like lucide-react)
+
 const SendIcon = (props) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24"
     viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -49,7 +49,7 @@ const Contact = () => {
 
       <div className="container mx-auto px-4">
 
-        {/* HEADER */}
+      
         <div className="flex flex-col items-center justify-center py-16 px-4">
           <div className="relative flex flex-col items-center justify-center w-full max-w-4xl mx-auto fade-in-up">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
@@ -68,7 +68,7 @@ const Contact = () => {
             </h2>
           </div>
 
-          {/* Separator */}
+         
           <div className="flex items-center gap-4 my-6 fade-in-up">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500/50"></div>
             <div className="h-1.5 w-1.5 rounded-full bg-purple-500/70"></div>
@@ -81,10 +81,9 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* GRID */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
-          {/* LEFT SIDE */}
+         
           <div className="flex flex-col justify-center fade-in-up">
             <h3 className="text-3xl font-bold text-white mb-6">Let's work together</h3>
 
@@ -106,7 +105,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE FORM */}
+         
           <div className="relative fade-in-up">
 
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-purple-600/20 rounded-full blur-xl"></div>

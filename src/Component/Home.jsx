@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Letter Animations
+
 const titleContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,7 +40,7 @@ const Home = () => {
         id="home"
       >
 
-        {/* ==== FLOATING BACKGROUNDS (UNCHANGED) ==== */}
+      
         <div className="absolute left-[-10%] md:left-[-5%] top-[15%] md:top-[20%] rotate-[12deg]">
           <div className="relative w-[300px] md:w-[500px] h-[60px] md:h-[100px] translate-y-[1px]">
             <div
@@ -65,19 +65,16 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ==== CENTER CONTENT ==== */}
         <div className="z-10 flex flex-col items-center text-center w-full max-w-4xl mx-auto">
 
-          {/* NEW TAG — unchanged */}
+          
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
             bg-white/5 border border-white/10 mb-8 md:mb-12 animate-fadeInUp">
             <span className="bg-primary/80 px-1.5 rounded-full -ml-1.5 text-xs md:text-sm">new</span>
             <div className="shiny-text animate-shiny text-xs md:text-sm">Chatbot Available</div>
           </div>
 
-          {/* ====================================================
-                     TITLE — LETTER BY LETTER ANIMATION
-              ==================================================== */}
+          
           <motion.h1
             variants={titleContainerVariants}
             initial="hidden"
@@ -85,7 +82,6 @@ const Home = () => {
             className="text-5xl sm:text-6xl md:text-8xl font-bold mb-4 flex flex-wrap justify-center gap-x-3 md:gap-x-4"
           >
 
-            {/* Coder */}
             <motion.span variants={titleWordVariants} className="flex">
               {"Coder".split("").map((letter, i) => (
                 <motion.span
@@ -100,9 +96,7 @@ const Home = () => {
               ))}
             </motion.span>
 
-            {/* <span className="w-3" /> */}
-
-            {/* X (gradient) */}
+          
             <motion.span variants={titleWordVariants} className="flex">
               {"X".split("").map((letter, i) => (
                 <motion.span
@@ -118,9 +112,8 @@ const Home = () => {
               ))}
             </motion.span>
 
-            {/* <span className="w-3" /> */}
 
-            {/* Dreamer */}
+           
             <motion.span variants={titleWordVariants} className="flex">
               {"Dreamer".split("").map((letter, i) => (
                 <motion.span
@@ -137,7 +130,7 @@ const Home = () => {
 
           </motion.h1>
 
-          {/* SUBTEXT (unchanged) */}
+         
           <p className="text-lg md:text-2xl text-gray-300 mb-8 px-4">
             Hello, I'm Chetan Patil – a Software Developer
           </p>
@@ -145,7 +138,7 @@ const Home = () => {
 
           <div className="animate-fadeInUp z-100 mt-4 flex flex-col items-center justify-center gap-6 md:mt-8 md:flex-row md:gap-10">
 
-            {/* CONNECT BUTTON */}
+         
             <div className="group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-white/10 bg-white/10 py-[3px] pl-2 pr-[3px] text-base font-medium opacity-85 backdrop-blur-xs transition-all hover:bg-transparent md:py-1 md:pl-3 md:pr-1">
               <a href="#contact" className="z-10 px-2 text-white transition-colors duration-300 group-hover:text-black">
                 Let's Connect
@@ -182,7 +175,7 @@ const Home = () => {
               </span>
             </div>
 
-            {/* EMAIL ICON BUTTON (UPDATED to match your requested UI) */}
+            
             <motion.button
               onClick={() => navigator.clipboard.writeText("chetanpatil0104@gmail.com")}
               whileHover={{ scale: 1.05 }}

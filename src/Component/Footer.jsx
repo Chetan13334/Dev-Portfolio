@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Placeholder icons (using standard SVG paths for lucide icons)
+
 const GithubIcon = (props) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
@@ -35,10 +35,10 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center justify-center gap-8">
           
-          {/* Social Links */}
+        
           <div className="flex items-center justify-center gap-6">
             
-            {/* GitHub */}
+           
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://github.com/Chetan13334">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
@@ -47,7 +47,7 @@ const Footer = () => {
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">GitHub</span>
             </a>
 
-            {/* LinkedIn */}
+        
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://www.linkedin.com/in/chetan-patil-5ab846297">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-blue-500/20 hover:text-blue-400">
@@ -56,7 +56,7 @@ const Footer = () => {
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">LinkedIn</span>
             </a>
 
-            {/* Email */}
+          
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="mailto:chetanpatil0104@gmail.com">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
@@ -66,16 +66,10 @@ const Footer = () => {
             </a>
 
             
-            {/* <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://www.facebook.com/iamrezadadu/">
-              <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-blue-500/20 hover:text-blue-300">
-                <FacebookIcon className="h-5 w-5" />
-              </div>
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">Facebook</span>
-            </a> */}
+           
           </div>
 
-          {/* Separator and Copyright */}
+          
           <div className="flex w-full max-w-xs items-center gap-4">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/20"></div>
             <div className="h-1.5 w-1.5 rounded-full bg-purple-500/50"></div>
