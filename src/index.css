@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+    --font-rajdhani: 'Rajdhani', sans-serif;
+}
+html, body {
+  overflow-x: hidden !important;
+}
+
+
+body {
+    font-family: var(--font-rajdhani);
+}
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-fadeSlide {
+  animation: fadeSlide 0.6s ease-out;
+}
+.shiny-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #a1a1a1 20%,
+    #ffffff 40%,
+    #a1a1a1 60%,
+    #ffffff 80%,
+    #ffffff 100%
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.letter {
+  opacity: 0;
+  display: inline-block;
+  animation: letterFade 0.6s forwards;
+}
+
+.letter-delay-1 { animation-delay: 0.05s; }
+.letter-delay-2 { animation-delay: 0.10s; }
+.letter-delay-3 { animation-delay: 0.15s; }
+.letter-delay-4 { animation-delay: 0.20s; }
+.letter-delay-5 { animation-delay: 0.25s; }
+.letter-delay-6 { animation-delay: 0.30s; }
+.letter-delay-7 { animation-delay: 0.35s; }
+.letter-delay-8 { animation-delay: 0.40s; }
+.letter-delay-9 { animation-delay: 0.45s; }
+.letter-delay-10 { animation-delay: 0.50s; }
+.letter-delay-11 { animation-delay: 0.55s; }
+.letter-delay-12 { animation-delay: 0.60s; }
+
+@keyframes letterFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-letter {
+  opacity: 0;
+  animation: letterFade 0.5s ease forwards;
+}
+.letter {
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease;
+  cursor: default;
+}
+
+/* Hover animation like original website */
+.letter:hover {
+  transform: rotateY(25deg) rotateX(10deg) translateY(-4px) scale(1.1);
+  text-shadow: 0 5px 25px rgba(0, 153, 255, 0.5);
+}
