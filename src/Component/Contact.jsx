@@ -121,7 +121,7 @@ const Contact = () => {
                     <input
                       id="name"
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 
+                      className="w-full px-4 mt-3 py-3 bg-white/5 border border-white/10 
                       rounded-lg focus:outline-none focus:ring-2 
                       focus:ring-purple-500/50 text-white placeholder-gray-500"
                       type="text"
@@ -133,7 +133,7 @@ const Contact = () => {
                     <input
                       id="email"
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 
+                      className="w-full px-4 mt-3 py-3 bg-white/5 border border-white/10 
                       rounded-lg focus:outline-none focus:ring-2 
                       focus:ring-purple-500/50 text-white placeholder-gray-500"
                       type="email"
@@ -146,7 +146,7 @@ const Contact = () => {
                   <input
                     id="subject"
                     placeholder="Project Inquiry"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 
+                    className="w-full px-4 mt-3 py-3 bg-white/5 border border-white/10 
                     rounded-lg focus:outline-none focus:ring-2 
                     focus:ring-purple-500/50 text-white placeholder-gray-500"
                     type="text"
@@ -159,7 +159,7 @@ const Contact = () => {
                     id="message"
                     placeholder="Hello, I'd like to discuss a project..."
                     rows="5"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 
+                    className="w-full px-4 mt-3 py-3 bg-white/5 border border-white/10 
                     rounded-lg focus:outline-none focus:ring-2 
                     focus:ring-purple-500/50 text-white placeholder-gray-500 resize-none"
                   ></textarea>
@@ -167,7 +167,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-800 
+                  className="w-full py-3 mt-4 bg-gradient-to-r from-purple-600 to-purple-800 
                   hover:from-purple-700 hover:to-purple-900 
                   text-white font-medium rounded-lg flex items-center justify-center gap-2"
                 >

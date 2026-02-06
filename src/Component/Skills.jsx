@@ -70,7 +70,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative min-h-screen bg-black text-white py-20 px-4 overflow-hidden"
+      className="relative min-h-screen bg-black text-white  px-4 overflow-hidden"
     >
       <div className="relative flex flex-col items-center justify-center py-16 bg-black text-white overflow-hidden">
         <h2 className="text-8xl md:text-[10rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/2 bg-clip-text text-transparent select-none tracking-tighter">
@@ -84,8 +84,8 @@ const Skills = () => {
         </p>
       </div>
 
-      <div className="mx-auto ml-120 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6x3 items-center">
-        <div className="relative order-2 lg:order-1">
+      <div className="mx-auto flex justify-center items-center gap-6 max-w-6xl mt-10 mb-10 px-4">
+        <div className="relative z-10">
           <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-2xl rounded-full" />
           <motion.div
             style={{ rotate }}
@@ -94,7 +94,7 @@ const Skills = () => {
             <img
               src={flow}
               alt="Tech Flow"
-              className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+              className="w-full max-w-xs md:max-w-md mx-auto rounded-2xl shadow-2xl"
             />
           </motion.div>
         </div>

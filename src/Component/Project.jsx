@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }) => {
       className="w-full"
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        {/* Image Side */}
+
         <motion.div
           className={`relative order-2 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
           whileHover={{ scale: 1.02 }}
@@ -29,14 +29,25 @@ const ProjectCard = ({ project, index }) => {
               alt={project.title}
               className="relative w-full rounded-2xl border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:rotate-1"
             />
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-6">
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md border border-white/10 transition-all hover:scale-110 hover:rotate-3 shadow-lg"
+                title="View Source"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/github/white"
+                  alt="GitHub"
+                  className="w-6 h-6"
+                />
+              </a>
+            </div>
           </div>
         </motion.div>
-
-        {/* Content Side */}
         <div className={`space-y-6 order-1 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-          {/* Project Type Badge */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
@@ -46,18 +57,22 @@ const ProjectCard = ({ project, index }) => {
               {project.type}
             </span>
           </motion.div>
-
-          {/* Title */}
           <motion.h3
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ delay: index * 0.2 + 0.3 }}
           >
-            {project.title}
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors flex items-center gap-3">
+              {project.title}
+              <img
+                src="https://cdn.simpleicons.org/github/white"
+                alt="GitHub"
+                className="w-6 h-6 md:w-8 md:h-8 hover:scale-110 transition-transform"
+              />
+            </a>
           </motion.h3>
 
-          {/* Description */}
           <motion.p
             className="text-gray-300 text-lg leading-relaxed"
             initial={{ opacity: 0, x: -20 }}
@@ -67,7 +82,6 @@ const ProjectCard = ({ project, index }) => {
             {project.description}
           </motion.p>
 
-          {/* Bullets */}
           <motion.ul
             className="space-y-3"
             initial={{ opacity: 0 }}
@@ -129,7 +143,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="work"
-      className="relative min-h-screen bg-black text-white font-rajdhani py-20 px-4 md:px-8 overflow-hidden"
+      className="relative min-h-screen bg-black text-white font-rajdhani py-20 px-1 md:px-8 overflow-hidden"
       aria-label="Projects"
     >
       {/* Background Effects */}
@@ -138,7 +152,7 @@ const ProjectsSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="relative flex flex-col items-center justify-center py-16 bg-black text-white overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center py-4 bg-black text-white overflow-hidden">
         <h2 className="text-8xl md:text-[10rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/2 bg-clip-text text-transparent select-none tracking-tighter">
           PROJECTS
         </h2>

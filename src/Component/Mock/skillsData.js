@@ -20,7 +20,6 @@ export const skills = [
     { name: "Redux", icon: "https://cdn.simpleicons.org/redux", level: 83 },
     { name: "Git", icon: "https://cdn.simpleicons.org/git", level: 90 },
     { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white", level: 92 },
-    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", level: 88 },
     { name: "Postman", icon: "https://cdn.simpleicons.org/postman", level: 90 },
     { name: "Docker", icon: "https://cdn.simpleicons.org/docker", level: 75 },
     { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/blue", level: 70 },

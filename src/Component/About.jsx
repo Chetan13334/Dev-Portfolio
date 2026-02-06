@@ -130,7 +130,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center py-16 bg-black text-white overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center py-1 bg-black text-white overflow-hidden">
         <h2 className="text-8xl md:text-[10rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/2 bg-clip-text text-transparent select-none tracking-tighter">
           ABOUT ME
         </h2>
@@ -144,7 +144,7 @@ const AboutMe = () => {
       <section
         ref={sectionRef}
         id="about"
-        className=" h-[150vh] relative min-h-screen bg-black text-white px-6 md:px-12 lg:px-16 pt-16 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 overflow-hidden"
+        className=" h-[150vh] relative min-h-screen bg-black text-white px-6 md:px-12 lg:px-16 pt-12 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 overflow-hidden"
       >
         <motion.div
           className="relative group about-animate opacity-0 translate-y-5 transition-all duration-700 flex-shrink-0"
@@ -237,6 +237,8 @@ const AboutMe = () => {
                 <motion.a
                   key={i}
                   href={social.href}
+                  target={social.href.startsWith("mailto") ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
                   className="social-icon"
                   aria-label={social.label}
                   whileHover={{ scale: 1.2, rotate: 5 }}
