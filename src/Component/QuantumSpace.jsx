@@ -11,7 +11,7 @@ const QuantumSpace = () => {
 
     // Generate stars once to prevent re-renders
     const generateStars = (count, sizeRange) => {
-        return Array.from({ length: count }).map((_, i) => ({
+        return Array.from({ length: count }).map(() => ({
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             size: Math.random() * sizeRange[1] + sizeRange[0],
@@ -20,9 +20,9 @@ const QuantumSpace = () => {
         }));
     };
 
-    const farStars = useMemo(() => generateStars(150, [0.5, 1.5]), []);
-    const midStars = useMemo(() => generateStars(80, [1, 2.5]), []);
-    const nearStars = useMemo(() => generateStars(40, [2, 4]), []);
+    const farStars = useMemo(() => generateStars(100, [0.5, 1.2]), []);
+    const midStars = useMemo(() => generateStars(50, [1, 2]), []);
+    const nearStars = useMemo(() => generateStars(25, [2, 3.5]), []);
 
     return (
         <div className="fixed inset-0 z-[-10] bg-[#030014] overflow-hidden pointer-events-none">
@@ -34,7 +34,7 @@ const QuantumSpace = () => {
             {/* Far Layer: Galaxy Rotation */}
             <motion.div
                 style={{ rotate: farRotate }}
-                className="absolute inset-[-50%] opacity-30"
+                className="absolute inset-[-50%] opacity-30 will-change-transform"
             >
                 {farStars.map((star, i) => (
                     <div
@@ -55,7 +55,7 @@ const QuantumSpace = () => {
             {/* Mid Layer: Drifting Blur */}
             <motion.div
                 style={{ y: midY }}
-                className="absolute inset-0 opacity-50"
+                className="absolute inset-0 opacity-50 will-change-transform"
             >
                 {midStars.map((star, i) => (
                     <motion.div
@@ -76,7 +76,7 @@ const QuantumSpace = () => {
             {/* Near Layer: Fast Parallax */}
             <motion.div
                 style={{ y: nearY }}
-                className="absolute inset-0"
+                className="absolute inset-0 will-change-transform"
             >
                 {nearStars.map((star, i) => (
                     <div

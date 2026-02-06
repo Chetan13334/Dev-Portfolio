@@ -1,39 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import flow from "../assets/gpt.webp";
+import { skills } from "./Mock/skillsData";
 
-const skills = [
-  { name: "Java", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg", level: 85 },
-  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript", level: 90 },
-  { name: "ReactJS", icon: "https://cdn.simpleicons.org/react", level: 92 },
-  { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/darkgreen", level: 80 },
-  { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql", level: 85 },
-  { name: "firebase", icon: "https://cdn.simpleicons.org/firebase", level: 75 },
-  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript", level: 88 },
-  { name: "HTML", icon: "https://cdn.simpleicons.org/html5", level: 95 },
-  { name: "CSS", icon: "https://cdn.simpleicons.org/css", level: 93 },
-  { name: "NextJS", icon: "https://cdn.simpleicons.org/nextdotjs/white", level: 87 },
-  { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap", level: 90 },
-  { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss", level: 95 },
-  { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer", level: 85 },
-  { name: "Shadcn", icon: "https://cdn.simpleicons.org/shadcnui/white", level: 80 },
-  { name: "NodeJS", icon: "https://cdn.simpleicons.org/nodedotjs/darkgreen", level: 88 },
-  { name: "ExpressJS", icon: "https://cdn.simpleicons.org/express/white", level: 90 },
-  { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/skyblue", level: 82 },
-  { name: "Prisma", icon: "https://cdn.simpleicons.org/prisma/blue", level: 85 },
-  { name: "Redux", icon: "https://cdn.simpleicons.org/redux", level: 83 },
-  { name: "Git", icon: "https://cdn.simpleicons.org/git", level: 90 },
-  { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white", level: 92 },
-  { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", level: 88 },
-  { name: "Postman", icon: "https://cdn.simpleicons.org/postman", level: 90 },
-  { name: "Docker", icon: "https://cdn.simpleicons.org/docker", level: 75 },
-  { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/blue", level: 70 },
-  { name: "SpringBoot", icon: "https://cdn.simpleicons.org/Spring", level: 80 },
-  { name: "GSAP", icon: "https://cdn.simpleicons.org/gsap", level: 85 },
-  { name: "Ionic", icon: "https://cdn.simpleicons.org/ionic", level: 78 }
-];
-
-// Skill Card with Flip Animation
 const SkillCard = ({ skill, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const cardRef = useRef(null);
@@ -46,10 +15,12 @@ const SkillCard = ({ skill, index }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{
-        delay: index * 0.03,
-        duration: 0.5,
+        delay: index * 0.05,
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
         type: "spring",
-        stiffness: 100
+        stiffness: 70,
+        damping: 15
       }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -60,7 +31,6 @@ const SkillCard = ({ skill, index }) => {
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* Front */}
         <div className="skill-card-face skill-card-front group relative flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-neutral-900 px-4 py-2 text-sm lg:text-base text-white/80 hover:bg-neutral-800 transition-all duration-300">
           <motion.div
             className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -76,8 +46,7 @@ const SkillCard = ({ skill, index }) => {
           <span className="relative z-10">{skill.name}</span>
         </div>
 
-        {/* Back */}
-        <div className="skill-card-face skill-card-back absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl border border-purple-500/50 bg-gradient-to-br from-purple-900/90 to-violet-900/90 backdrop-blur-sm px-4 py-2">
+        <div className="skill-card-face skill-card-back absolute inset-0 flex flex-col items-center justify-center gap-0.5 rounded-xl border border-purple-500/50 bg-gradient-to-br from-purple-900/90 to-violet-900/90 backdrop-blur-sm px-4 py-2">
           <span className="text-sm font-semibold text-white">{skill.name}</span>
           <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
             <motion.div
@@ -94,84 +63,40 @@ const SkillCard = ({ skill, index }) => {
   );
 };
 
-export const Skills = () => {
-  const cardsRef = useRef([]);
+const Skills = () => {
+  const { scrollYProgress } = useScroll();
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
     <section
       id="skills"
-      className="min-h-screen bg-black text-white flex flex-col items-center py-20 px-4 font-rajdhani"
+      className="relative min-h-screen bg-black text-white py-20 px-4 overflow-hidden"
     >
-      <div className="relative w-full max-w-4xl flex flex-col items-center justify-center">
-        <div className="absolute inset-0 -z-10 opacity-10">
+      <div className="relative flex flex-col items-center justify-center py-16 bg-black text-white overflow-hidden">
+        <h2 className="text-8xl md:text-[10rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/2 bg-clip-text text-transparent select-none tracking-tighter">
+          SKILLS
+        </h2>
+        <h3 className="absolute text-4xl mb-12 md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/90 to-gray-300 capitalize ">
+          Skills
+        </h3>
+        <p className="relative text-lg text-gray-400 uppercase tracking-widest z-10">
+          My Tech Stack
+        </p>
+      </div>
+
+      <div className="mx-auto ml-120 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6x3 items-center">
+        <div className="relative order-2 lg:order-1">
+          <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-2xl rounded-full" />
           <motion.div
-            className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-[120px]"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.15, 0.1]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[120px]"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.15, 0.1, 0.15]
-            }}
-            transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-          />
-        </div>
-
-        <motion.div
-          className="relative mx-auto size-[300px] md:size-[380px] opacity-70 translate-y-24"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        >
-          <img src={flow} draggable="false" alt="" className="w-full h-full" />
-        </motion.div>
-
-        <div className="relative flex flex-col items-center justify-center -mt-10">
-          <motion.span
-            className="text-8xl md:text-[10rem] mt-[3rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/20 bg-clip-text text-transparent tracking-tighter"
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            style={{ rotate }}
+            className="relative flex justify-center items-center"
           >
-            SKILLS
-          </motion.span>
-
-          <motion.h2
-            className="absolute text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Skills
-          </motion.h2>
-
-          <div className="flex items-center gap-4 my-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500/50"></div>
-            <motion.div
-              className="h-1.5 w-1.5 rounded-full bg-purple-500/70"
-              animate={{ scale: [1, 1.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+            <img
+              src={flow}
+              alt="Tech Flow"
+              className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
             />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500/50"></div>
-          </div>
-
-          <motion.p
-            className="text-base md:text-lg text-gray-300 uppercase tracking-wider text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            I constantly try to improve
-          </motion.p>
+          </motion.div>
         </div>
       </div>
 
@@ -184,6 +109,9 @@ export const Skills = () => {
       <style>{`
         .perspective-1000 {
           perspective: 1000px;
+        }
+        .skill-card-container {
+          will-change: transform, opacity;
         }
         .skill-card {
           width: 100%;

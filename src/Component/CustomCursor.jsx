@@ -2,85 +2,69 @@ import React, { useEffect, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [isHovering, setIsHovering] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-    const cursorX = useSpring(0, { damping: 30, stiffness: 200 });
-    const cursorY = useSpring(0, { damping: 30, stiffness: 200 });
+  const cursorX = useSpring(0, { damping: 25, stiffness: 250 });
+  const cursorY = useSpring(0, { damping: 25, stiffness: 250 });
 
-    useEffect(() => {
-        const updateMousePosition = (e) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
-            cursorX.set(e.clientX);
-            cursorY.set(e.clientY);
-            setIsVisible(true);
-        };
+  useEffect(() => {
+    const updateMousePosition = (e) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      setIsVisible(true);
 
-        const handleMouseEnter = () => setIsHovering(true);
-        const handleMouseLeave = () => setIsHovering(false);
+      const target = e.target;
+      const isHoverable = target.closest('a, button, [role="button"], .interactive');
+      setIsHovering(!!isHoverable);
+    };
 
-        // Add event listeners to interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
+    window.addEventListener('mousemove', updateMousePosition);
 
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', handleMouseEnter);
-            el.addEventListener('mouseleave', handleMouseLeave);
-        });
+    return () => {
+      window.removeEventListener('mousemove', updateMousePosition);
+    };
+  }, [cursorX, cursorY]);
 
-        window.addEventListener('mousemove', updateMousePosition);
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    return null;
+  }
 
-        return () => {
-            window.removeEventListener('mousemove', updateMousePosition);
-            interactiveElements.forEach(el => {
-                el.removeEventListener('mouseenter', handleMouseEnter);
-                el.removeEventListener('mouseleave', handleMouseLeave);
-            });
-        };
-    }, [cursorX, cursorY]);
+  return (
+    <>
+      <motion.div
+        className="custom-cursor"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: isHovering ? 1.5 : 1,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <div className="cursor-dot" />
+      </motion.div>
 
-    // Hide on mobile
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-        return null;
-    }
+      <motion.div
+        className="cursor-outline"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: isHovering ? 2 : 1,
+          opacity: isVisible ? 0.3 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+      />
 
-    return (
-        <>
-            {/* Main cursor */}
-            <motion.div
-                className="custom-cursor"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                }}
-                animate={{
-                    scale: isHovering ? 1.5 : 1,
-                    opacity: isVisible ? 1 : 0,
-                }}
-                transition={{ duration: 0.2 }}
-            >
-                <div className="cursor-dot" />
-            </motion.div>
-
-            {/* Cursor trail */}
-            <motion.div
-                className="cursor-outline"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                }}
-                animate={{
-                    scale: isHovering ? 2 : 1,
-                    opacity: isVisible ? 0.3 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-            />
-
-            <style>{`
+      <style>{`
         .custom-cursor,
         .cursor-outline {
           position: fixed;
@@ -113,8 +97,8 @@ const CustomCursor = () => {
           }
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 };
 
 export default CustomCursor;

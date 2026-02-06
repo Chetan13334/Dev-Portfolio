@@ -12,24 +12,28 @@ import CustomCursor from './Component/CustomCursor'
 import ScrollProgress from './Component/ScrollProgress'
 import PageTransition from './Component/PageTransition'
 
+import SmoothScroll from './Component/SubComponent/SmoothScroll'
+
 function App() {
   return (
-    <PageTransition>
-      <div className="quantum-scene">
+    <SmoothScroll>
+      <PageTransition>
         <CustomCursor />
         <ScrollProgress />
-        <QuantumSpace />
-        <PlasmaHalo />
         <NavBar />
-        <Home />
-        <AboutMe />
-        <Pro />
-        <Skills />
-        <Education />
-        <Contact />
-        <Footer />
-      </div>
-    </PageTransition>
+        <div className="quantum-scene">
+          <QuantumSpace />
+          <PlasmaHalo />
+          <Home />
+          <AboutMe />
+          <Pro />
+          <Skills />
+          <Education />
+          <Contact />
+          <Footer />
+        </div>
+      </PageTransition>
+    </SmoothScroll>
   )
 }
 

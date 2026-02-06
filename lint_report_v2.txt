@@ -1,0 +1,62 @@
+
+> portfolio@0.0.0 lint
+> eslint .
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+
+D:\REACTworkplace\portfolio\src\Component\About.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\CustomCursor.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\Education.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\NavBar.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\PageTransition.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\PlasmaHalo.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\Project.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\QuantumSpace.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\ScrollProgress.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\Skills.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\EducationCard.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\MagneticButton.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\MagneticNavItem.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\ParallaxOrb.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\ProjectCard.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\ScrambleText.jsx
+  8:11  warning  The 'scramble' function makes the dependencies of useEffect Hook (at line 37) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'scramble' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\SkillCard.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\REACTworkplace\portfolio\src\Component\SubComponent\TypingText.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 18 problems (17 errors, 1 warning)
+

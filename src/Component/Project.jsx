@@ -1,50 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import attend from "../assets/AttendMate.png";
-import managely from "../assets/Managely.png";
+import { projects } from "./Mock/projectsData";
 
-
-const projects = [
-  {
-    id: "attend",
-    title: "AttendMate",
-    type: "Team project",
-    summary: "Attendance automation system with facial recognition & geo-fencing.",
-    description:
-      "Attendance automation system with facial recognition, geo-fencing and role-based dashboards.",
-    bullets: [
-      "Role-based dashboards",
-      "Secure geo-fenced attendance",
-      "Real-time tracking & analytics",
-      "Facial recognition attendance automation",
-    ],
-    tech: ["react", "javascript", "tailwindcss", "firebase", "typescript", "github", "ionic"],
-    image: attend,
-    gradient: "from-indigo-500/20 to-blue-500/20",
-    accentColor: "indigo",
-  },
-  {
-    id: "managely",
-    title: "Managely",
-    type: "Solo project",
-    summary:
-      "Full-stack employee management system with secure login, CRUD operations, and MySQL integration.",
-    description:
-      "Manager-admin system with secure auth, CRUD employee operations and clean dashboards.",
-    bullets: [
-      "Secure manager login",
-      "Employee CRUD operations",
-      "REST APIs with Spring Boot",
-      "Responsive React frontend",
-    ],
-    tech: ["java", "react", "spring", "mysql", "bootstrap", "github"],
-    image: managely,
-    gradient: "from-green-500/20 to-emerald-500/20",
-    accentColor: "green",
-  },
-];
-
-// Project Card Component with 3D Tilt
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, margin: "-100px" });
@@ -54,7 +11,7 @@ const ProjectCard = ({ project, index }) => {
       ref={cardRef}
       initial={{ opacity: 0, y: 100 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-      transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.2, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="w-full"
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -183,7 +140,7 @@ const ProjectsSection = () => {
 
       <div className="relative flex flex-col items-center justify-center py-16 bg-black text-white overflow-hidden">
         <h2 className="text-8xl md:text-[10rem] font-extrabold bg-gradient-to-r from-white/10 via-white/5 to-white/2 bg-clip-text text-transparent select-none tracking-tighter">
-          PROJECTS 
+          PROJECTS
         </h2>
         <h3 className="absolute text-4xl mb-12 md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/90 to-gray-300 capitalize ">
           Projects

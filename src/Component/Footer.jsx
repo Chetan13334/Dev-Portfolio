@@ -34,11 +34,11 @@ const Footer = () => {
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center justify-center gap-8">
-          
-        
+
+
           <div className="flex items-center justify-center gap-6">
-            
-           
+
+
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://github.com/Chetan13334">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
@@ -47,7 +47,7 @@ const Footer = () => {
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">GitHub</span>
             </a>
 
-        
+
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://www.linkedin.com/in/chetan-patil-5ab846297">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-blue-500/20 hover:text-blue-400">
@@ -56,7 +56,7 @@ const Footer = () => {
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">LinkedIn</span>
             </a>
 
-          
+
             <a target="_blank" rel="noopener noreferrer" className="group relative" href="mailto:chetanpatil0104@gmail.com">
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
@@ -65,17 +65,17 @@ const Footer = () => {
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">Email</span>
             </a>
 
-            
-           
+
+
           </div>
 
-          
+
           <div className="flex w-full max-w-xs items-center gap-4">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/20"></div>
             <div className="h-1.5 w-1.5 rounded-full bg-purple-500/50"></div>
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/20"></div>
           </div>
-          
+
           <p className="text-center text-sm text-white/60">
             © 2025 <span className="bg-gradient-to-r from-white to-purple-300 bg-clip-text font-medium text-transparent">Chetan Patil</span>. All Rights Reserved.
           </p>

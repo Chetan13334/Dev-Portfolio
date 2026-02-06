@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Quantum Noir Palette */
   --space-black: #030014;
   --plasma-violet: #7C7CFF;
   --quantum-cyan: #00F0FF;
@@ -9,7 +8,6 @@
 
   --font-rajdhani: 'Rajdhani', sans-serif;
 
-  /* Motion Constants */
   --spring-stiffness: 120;
   --spring-damping: 18;
 }
@@ -20,10 +18,10 @@ body {
   background-color: var(--space-black);
   color: #fff;
   font-family: var(--font-rajdhani);
-  scroll-behavior: smooth;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -41,14 +39,12 @@ body {
   background: linear-gradient(180deg, #8B5CF6, #22D3EE);
 }
 
-/* Neural Blur Utility */
 .neural-blur {
   backdrop-filter: blur(18px) saturate(180%);
   background: var(--neural-glass);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Camera Breathing Effect */
 @keyframes cameraBreathing {
 
   0%,
@@ -72,9 +68,10 @@ body {
 .quantum-scene {
   perspective: 1200px;
   animation: cameraBreathing 20s ease-in-out infinite;
+  will-change: perspective-origin;
+  transform: translateZ(0);
 }
 
-/* Glowing Text */
 .text-glow-violet {
   text-shadow: 0 0 20px rgba(124, 124, 255, 0.5);
 }
@@ -99,7 +96,6 @@ body {
   animation: slideUpAnimate 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Glass Refraction */
 .glass-refraction {
   position: relative;
   overflow: hidden;

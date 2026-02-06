@@ -21,8 +21,8 @@ const PlasmaHalo = () => {
 
             {/* Primary Plasma Glow */}
             <motion.div
-                style={{ x: haloX, y: haloY, translateX: "-50%", translateY: "-50%" }}
-                className="absolute w-[600px] h-[600px] rounded-full opacity-40 blur-[80px]"
+                style={{ x: haloX, y: haloY, translateX: "-30%", translateY: "-50%" }}
+                className="absolute w-[600px] h-[600px] rounded-full opacity-40 blur-[80px] will-change-transform"
                 initial={false}
             >
                 <div className="w-full h-full bg-gradient-radial from-indigo-500/40 via-cyan-500/10 to-transparent" />
@@ -31,7 +31,7 @@ const PlasmaHalo = () => {
             {/* Internal "Point" Light */}
             <motion.div
                 style={{ x: haloX, y: haloY, translateX: "-50%", translateY: "-50%" }}
-                className="absolute w-[4px] h-[4px] bg-white rounded-full blur-[2px] opacity-80"
+                className="absolute w-[4px] h-[4px] bg-white rounded-full blur-[2px] opacity-80 will-change-transform"
             />
 
             {/* Reflected Halos (Subtle artifacts) */}
@@ -41,7 +41,7 @@ const PlasmaHalo = () => {
                     y: useSpring(mousePos.y * 0.9, springConfig),
                     translateX: "-50%", translateY: "-50%"
                 }}
-                className="absolute w-[300px] h-[300px] rounded-full bg-purple-500/5 blur-[60px] opacity-20"
+                className="absolute w-[300px] h-[300px] rounded-full bg-purple-500/5 blur-[60px] opacity-20 will-change-transform"
             />
 
             <style>{`
