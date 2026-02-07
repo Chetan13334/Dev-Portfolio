@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import avatar from "../assets/memoji-smile.webp";
-import Resume from "../assets/ReactJs_ChetanPatil_Resume.pdf";
+import Resume from "../assets/ChetanPatil_Resume2026.pdf";
 import { aboutSkills, socialLinks } from "./Mock/aboutData";
 
 const ScrambleText = ({ text, className }) => {
