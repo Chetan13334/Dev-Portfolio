@@ -92,14 +92,14 @@ const Contact = () => {
 
             <div className="flex items-center gap-4">
               <a
-                href="mailto:chetanpatil0104@gmail.com"
+                href={`mailto:${import.meta.env.VITE_EMAIL || "chetanpatil0104@gmail.com"}`}
                 className="inline-flex items-center gap-2 px-6 py-3 
                 bg-purple-600/20 hover:bg-purple-600/30 
                 text-purple-300 rounded-lg border border-purple-500/30
                 transition-all duration-300"
               >
                 <SendIcon className="w-4 h-4" />
-                <span>chetanpatil0104@gmail.com</span>
+                <span>{import.meta.env.VITE_EMAIL || "chetanpatil0104@gmail.com"}</span>
               </a>
             </div>
           </div>

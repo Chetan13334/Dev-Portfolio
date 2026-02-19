@@ -11,7 +11,7 @@ import PlasmaHalo from './Component/PlasmaHalo'
 
 import ScrollProgress from './Component/ScrollProgress'
 import PageTransition from './Component/PageTransition'
-
+import Experience from './Component/SubComponent/Experience'
 import SmoothScroll from './Component/SubComponent/SmoothScroll'
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
           <Home />
           <AboutMe />
           <Pro />
+          <Experience />
           <Skills />
           <Education />
           <Contact />

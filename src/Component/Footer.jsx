@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-6">
 
 
-            <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://github.com/Chetan13334">
+            <a target="_blank" rel="noopener noreferrer" className="group relative" href={import.meta.env.VITE_GITHUB_URL || "https://github.com/Chetan13334"}>
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
                 <GithubIcon className="h-5 w-5" />
@@ -48,7 +48,7 @@ const Footer = () => {
             </a>
 
 
-            <a target="_blank" rel="noopener noreferrer" className="group relative" href="https://www.linkedin.com/in/chetan-patil-5ab846297">
+            <a target="_blank" rel="noopener noreferrer" className="group relative" href={import.meta.env.VITE_LINKEDIN_URL || "https://www.linkedin.com/in/chetan-patil-5ab846297"}>
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-blue-500/20 hover:text-blue-400">
                 <LinkedinIcon className="h-5 w-5" />
@@ -57,7 +57,7 @@ const Footer = () => {
             </a>
 
 
-            <a target="_blank" rel="noopener noreferrer" className="group relative" href="mailto:chetanpatil0104@gmail.com">
+            <a target="_blank" rel="noopener noreferrer" className="group relative" href={`mailto:${import.meta.env.VITE_EMAIL || "chetanpatil0104@gmail.com"}`}>
               <span className="absolute -inset-2 -z-10 scale-0 rounded-full bg-white/5 transition-all duration-300 group-hover:scale-100"></span>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
                 <MailIcon className="h-5 w-5" />
