@@ -8,7 +8,7 @@ import Contact from './Component/Contact'
 import Footer from './Component/Footer'
 import QuantumSpace from './Component/QuantumSpace'
 import PlasmaHalo from './Component/PlasmaHalo'
-import CustomCursor from './Component/CustomCursor'
+
 import ScrollProgress from './Component/ScrollProgress'
 import PageTransition from './Component/PageTransition'
 
@@ -18,7 +18,7 @@ function App() {
   return (
     <SmoothScroll>
       <PageTransition>
-        <CustomCursor />
+
         <ScrollProgress />
         <NavBar />
         <div className="quantum-scene">
