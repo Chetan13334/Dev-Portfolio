@@ -175,8 +175,15 @@ const Experience = () => {
                                         <span className="text-[10px] font-mono text-[#a855f7] uppercase tracking-widest block mb-2">{exp.period}</span>
                                         <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                                         <p className="text-sm text-[#a855f7] mb-4">{exp.company}</p>
+                                        <ul className="space-y-2 text-slate-400 text-xs mb-4 list-none">
+                                            {exp.description.map((item, i) => (
+                                                <li key={i} className="flex gap-2">
+                                                    <span className="text-[#a855f7]">•</span> {item}
+                                                </li>
+                                            ))}
+                                        </ul>
                                         <div className="flex flex-wrap gap-2">
-                                            {exp.skills.slice(0, 2).map((skill, i) => (
+                                            {exp.skills.map((skill, i) => (
                                                 <span key={i} className="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[10px]">{skill}</span>
                                             ))}
                                         </div>
