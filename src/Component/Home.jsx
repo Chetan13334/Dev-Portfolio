@@ -49,6 +49,16 @@ const Home = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
+  const calculateDuration = (startDate, endDate = new Date()) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    return months + 1; // Inclusive of starting month
+  };
+
+  const scalarExp = calculateDuration("2025-10-01"); // Scalar Techhub (Oct 2025 - Present)
+  const kiranExp = calculateDuration("2025-03-01", "2025-10-01"); // Kiran Academy (Feb - Oct 2025)
+
   return (
     <>
       <section
@@ -172,6 +182,35 @@ const Home = () => {
             </motion.button>
           </motion.div>
         </div>
+
+        {/* Compact Experience Summary Card */}
+        <motion.div 
+          className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-8 px-8 py-3 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] group hover:border-violet-500/30 transition-all duration-500"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="flex flex-col items-center">
+            <span className="text-[9px] text-gray-500 uppercase tracking-[0.2em] mb-0.5 font-medium group-hover:text-violet-400/70 transition-colors">Total Experience</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-lg font-bold text-white tracking-tight">{scalarExp}</span>
+              <span className="text-[10px] text-gray-400 font-medium">Months</span>
+            </div>
+          </div>
+          
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+          
+          <div className="flex flex-col items-center">
+            <span className="text-[9px] text-gray-500 uppercase tracking-[0.2em] mb-0.5 font-medium group-hover:text-violet-400/70 transition-colors">Relevant Experience</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-lg font-bold text-white tracking-tight">{kiranExp}</span>
+              <span className="text-[10px] text-gray-400 font-medium">Months</span>
+            </div>
+          </div>
+
+          {/* Subtle Glow Effect */}
+          <div className="absolute inset-0 rounded-2xl bg-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl -z-10" />
+        </motion.div>
       </section>
 
       <style>{`

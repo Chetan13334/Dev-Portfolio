@@ -142,7 +142,7 @@ const ProjectCard = ({ project, index }) => {
 const ProjectsSection = () => {
   return (
     <section
-      id="work"
+      id="projects"
       className="relative min-h-screen bg-black text-white font-rajdhani py-20 px-1 md:px-8 overflow-hidden"
       aria-label="Projects"
     >

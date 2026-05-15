@@ -5,7 +5,8 @@ import MagneticNavItem from "./SubComponent/MagneticNavItem";
 const navItems = [
   { name: "Home", id: "home" },
   { name: "About", id: "about" },
-  { name: "Work", id: "work" },
+  { name: "Projects", id: "projects" },
+  { name: "Experience", id: "experience" },
   { name: "Skills", id: "skills" },
   { name: "Contact", id: "contact" },
 ];
@@ -13,6 +14,34 @@ const navItems = [
 const Header = () => {
   const [activeItem, setActiveItem] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  React.useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Trigger when section occupies the main part of the viewport
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const item = navItems.find((nav) => nav.id === entry.target.id);
+          if (item) {
+            setActiveItem(item.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
