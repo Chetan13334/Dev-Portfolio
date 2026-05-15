@@ -27,6 +27,37 @@ const MagneticButton = ({ children, href }) => {
         y.set(0);
     };
 
+    const handleAnchorClick = (e) => {
+        if (!href?.startsWith('#')) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const element = document.querySelector(href);
+        if (!element) {
+            return;
+        }
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (window.lenis?.scrollTo && !prefersReducedMotion) {
+            window.lenis.scrollTo(element, {
+                offset: 0,
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
+            return;
+        }
+
+        element.scrollIntoView({
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+            block: "start",
+        });
+    };
+
     return (
         <motion.div
             ref={ref}
@@ -37,19 +68,7 @@ const MagneticButton = ({ children, href }) => {
         >
             <a
                 href={href}
-                onClick={(e) => {
-                    if (href?.startsWith('#')) {
-                        e.preventDefault();
-                        const element = document.querySelector(href);
-                        if (element && window.lenis) {
-                            window.lenis.scrollTo(element, {
-                                offset: 0,
-                                duration: 2,
-                                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out
-                            });
-                        }
-                    }
-                }}
+                onClick={handleAnchorClick}
                 className="z-10 px-2 text-white transition-colors duration-300 group-hover:text-black"
             >
                 {children}

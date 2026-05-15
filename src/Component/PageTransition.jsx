@@ -5,10 +5,13 @@ const PageTransition = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1500);
+        }, prefersReducedMotion ? 0 : 450);
 
         return () => clearTimeout(timer);
     }, []);
@@ -21,20 +24,20 @@ const PageTransition = ({ children }) => {
                         className="page-loader"
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        transition={{ duration: 0.25 }}
                     >
                         <motion.div
                             className="loader-content"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 1.2, opacity: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.35 }}
                         >
                             <div className="loader-spinner" />
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
+                                transition={{ delay: 0.1 }}
                                 className="loader-text"
                             >
                                 Loading Experience...
@@ -47,7 +50,7 @@ const PageTransition = ({ children }) => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isLoading ? 0 : 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.35 }}
             >
                 {children}
             </motion.div>

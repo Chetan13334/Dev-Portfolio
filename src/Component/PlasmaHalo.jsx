@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const PlasmaHalo = () => {
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const reflectedMouseX = useMotionValue(0);
+    const reflectedMouseY = useMotionValue(0);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
+            reflectedMouseX.set(e.clientX * 0.9);
+            reflectedMouseY.set(e.clientY * 0.9);
         };
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    }, [mouseX, mouseY, reflectedMouseX, reflectedMouseY]);
 
     const springConfig = { damping: 25, stiffness: 150 };
-    const haloX = useSpring(mousePos.x, springConfig);
-    const haloY = useSpring(mousePos.y, springConfig);
+    const haloX = useSpring(mouseX, springConfig);
+    const haloY = useSpring(mouseY, springConfig);
+    const reflectedX = useSpring(reflectedMouseX, springConfig);
+    const reflectedY = useSpring(reflectedMouseY, springConfig);
 
     return (
         <div className="fixed inset-0 z-50 pointer-events-none mix-blend-screen overflow-hidden">
@@ -36,11 +44,7 @@ const PlasmaHalo = () => {
 
             {/* Reflected Halos (Subtle artifacts) */}
             <motion.div
-                style={{
-                    x: useSpring(mousePos.x * 0.9, springConfig),
-                    y: useSpring(mousePos.y * 0.9, springConfig),
-                    translateX: "-50%", translateY: "-50%"
-                }}
+                style={{ x: reflectedX, y: reflectedY, translateX: "-50%", translateY: "-50%" }}
                 className="absolute w-[300px] h-[300px] rounded-full bg-purple-500/5 blur-[60px] opacity-20 will-change-transform"
             />
 

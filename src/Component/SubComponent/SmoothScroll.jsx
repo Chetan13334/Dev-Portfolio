@@ -3,11 +3,20 @@ import Lenis from 'lenis';
 
 const SmoothScroll = ({ children }) => {
     const lenisRef = useRef(null);
+    const rafIdRef = useRef(null);
 
     useEffect(() => {
-        // Initialize Lenis
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (prefersReducedMotion) {
+            window.lenis = null;
+            return undefined;
+        }
+
         const lenis = new Lenis({
-            lerp: 0.1, // Smoothness intensity
+            lerp: 0.08,
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
@@ -19,20 +28,24 @@ const SmoothScroll = ({ children }) => {
 
         lenisRef.current = lenis;
 
-        // Use requestAnimationFrame to update Lenis
         function raf(time) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafIdRef.current = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
-
-        // Store lenis instance globally for potential use elsewhere (e.g. scroll to anchor)
+        rafIdRef.current = requestAnimationFrame(raf);
         window.lenis = lenis;
 
         return () => {
+            if (rafIdRef.current) {
+                cancelAnimationFrame(rafIdRef.current);
+                rafIdRef.current = null;
+            }
+
             lenis.destroy();
-            window.lenis = null;
+            if (window.lenis === lenis) {
+                window.lenis = null;
+            }
         };
     }, []);
 

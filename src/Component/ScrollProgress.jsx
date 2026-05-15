@@ -1,13 +1,18 @@
 import React from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
 
 const ScrollProgress = () => {
+    const prefersReducedMotion = useReducedMotion();
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
+
+    if (prefersReducedMotion) {
+        return null;
+    }
 
     return (
         <motion.div

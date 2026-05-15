@@ -46,7 +46,18 @@ const Header = () => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (window.lenis?.scrollTo && !prefersReducedMotion) {
+        window.lenis.scrollTo(section, { offset: 0, duration: 1.2 });
+      } else {
+        section.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "start",
+        });
+      }
       setIsMobileMenuOpen(false);
     }
   };

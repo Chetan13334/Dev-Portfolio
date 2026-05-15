@@ -18,6 +18,7 @@ const Contact = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in-visible");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -37,7 +38,7 @@ const Contact = () => {
         .fade-in-up {
           opacity: 0;
           transform: translateY(25px);
-          transition: all 0.8s ease-out;
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in-visible {
